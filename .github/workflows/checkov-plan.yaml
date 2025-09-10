@@ -10,4 +10,4 @@ jobs:
     steps:
       - name: check
         run: |
-          cat /etc/os-release
+          echo "hello"
