@@ -1,0 +1,13 @@
+name: checkov-plan
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  checkov-plan:
+    runs-on: hashicorp/terraform:1.13
+    steps:
+      - name: check
+        run: |
+          "cat /etc/os-release"
