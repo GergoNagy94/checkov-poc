@@ -6,8 +6,8 @@ on:
 
 jobs:
   checkov-plan:
-    runs-on: hashicorp/terraform:1.13
+    runs-on: macbook-pro
     steps:
       - name: check
         run: |
-          "cat /etc/os-release"
+          cat /etc/os-release
