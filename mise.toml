@@ -1,0 +1,29 @@
+[tools]
+opentofu = "1.10.2"
+terragrunt = "0.82.3"
+fd = "10.3.0"
+
+[env]
+PROJECT_NAME = "checkov-test"
+PROJECT_VERSION = "1.0.0"
+
+[tasks.checkov-plan]
+description = "Use checkov to scan and check a terragrunt stack."
+usage = '''
+arg "env" "environment" default="development"
+arg "region" "region" default="eu-central-1"
+arg "stack" "terragrunt-stack" default="vpc"
+'''
+run = '''
+#!/bin/bash -eux
+WORKDIR=infrastructure/live/$usage_env/$usage_region/$usage_stack
+
+terragrunt init --all --working-dir $WORKDIR
+terragrunt plan --all --working-dir $WORKDIR --out tfplan.binary
+
+BINARY="$(fd -H -i tfplan.binary $WORKDIR)"
+cd ./${BINARY%/*}
+tofu show -json tfplan.binary | jq > tfplan.json
+
+checkov -f tfplan.json --soft-fail
+'''
