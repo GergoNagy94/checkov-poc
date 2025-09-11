@@ -1,8 +1,20 @@
 name: checkov-plan
 
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "environment"
+        required: true
+        default: "development"
+      region:
+        description: "region"
+        required: true
+        default: "eu-central-1"
+      stack:
+        description: "terragrunt stack"
+        required: true
+        default: "vpc"
 
 jobs:
   checkov-plan:
@@ -10,4 +22,6 @@ jobs:
     steps:
       - name: check
         run: |
-          echo "hello"
+          echo "environment ${{ github.event.inputs.environment }}
+          echo "region ${{ github.event.inputs.region }}
+          echo "stack ${{ github.event.inputs.stack }}
