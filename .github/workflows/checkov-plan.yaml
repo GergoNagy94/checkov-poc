@@ -46,3 +46,8 @@ jobs:
           WORKDIR=infrastructure/live/${{ github.event.inputs.environment }}/${{ github.event.inputs.region }}/${{ github.event.inputs.stack }}
 
           terragrunt init --all --working-dir $WORKDIR
+          terragrunt plan --all --working-dir $WORKDIR --out tfplan.binary
+
+          BINARY="$(fd -H -i tfplan.binary $WORKDIR)"
+          cd ./${BINARY%/*}
+          tofu show -json tfplan.binary | jq > tfplan.json
