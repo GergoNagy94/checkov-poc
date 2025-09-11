@@ -1,0 +1,30 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:Describe*",
+        "s3:GetObject",
+        "s3:ListBucket",
+        "iam:Get*",
+        "iam:List*",
+        "lambda:Get*",
+        "lambda:List*",
+        "rds:Describe*",
+        "cloudwatch:Describe*",
+        "cloudformation:Describe*",
+        "cloudformation:List*",
+        "kms:Describe*",
+        "kms:List*",
+        "sns:List*",
+        "sns:Get*",
+        "sqs:List*",
+        "sqs:Get*",
+        "elasticloadbalancing:Describe*",
+        "apigateway:GET"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

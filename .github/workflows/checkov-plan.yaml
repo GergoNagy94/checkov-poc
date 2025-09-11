@@ -25,6 +25,9 @@ jobs:
     container:
       image: gergonullfuga/terragrunt:v1
     steps:
+      - name: checkout
+        uses: actions/checkout@v5
+
       - name: echo inputs
         run: |
           echo "environment ${{ github.event.inputs.environment }}"
@@ -36,6 +39,16 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::567749996660:role/checkov-role
           aws-region: eu-central-1
-      - name: test aws caller
+
+      - name: check plan
         run: |
-          aws sts get-caller-identity
+          WORKDIR=infrastructure/live/${{ github.event.inputs.environment }}/${{ github.event.inputs.region }}/${{ github.event.inputs.stack }}
+
+          terragrunt init --all --working-dir $WORKDIR
+          terragrunt plan --all --working-dir $WORKDIR --out tfplan.binary
+
+          BINARY="$(fd -H -i tfplan.binary $WORKDIR)"
+          cd ./${BINARY%/*}
+          tofu show -json tfplan.binary | jq > tfplan.json
+
+          checkov -f tfplan.json --soft-fail >> $GITHUB_OUTPUT
