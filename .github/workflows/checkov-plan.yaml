@@ -18,17 +18,15 @@ on:
 
 jobs:
   checkov-plan:
-    runs-on: self-hosted
-    container:
-      image: gergonullfuga/terragrunt:v1
+    runs-on: gergonullfuga/terragrunt:v1
     steps:
-      - name: check
+      - name: echo inputs
         run: |
           echo "environment ${{ github.event.inputs.environment }}"
           echo "region ${{ github.event.inputs.region }}"
           echo "stack ${{ github.event.inputs.stack }}"
 
-      - name: AWS
+      - name: aws configure
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::567749996660:role/checkov-role
