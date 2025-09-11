@@ -47,3 +47,9 @@ jobs:
 
           terragrunt init --all --working-dir $WORKDIR
           terragrunt plan --all --working-dir $WORKDIR --out tfplan.binary
+
+          BINARY="$(fd -H -i tfplan.binary $WORKDIR)"
+          cd ./${BINARY%/*}
+          tofu show -json tfplan.binary | jq > tfplan.json
+
+          checkov -f tfplan.json --soft-fail >> $GITHUB_STEP_SUMMARY
