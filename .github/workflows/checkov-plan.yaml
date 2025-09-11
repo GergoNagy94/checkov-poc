@@ -18,7 +18,9 @@ on:
 
 jobs:
   checkov-plan:
-    runs-on: gergonullfuga/terragrunt:v1
+    runs-on: ubuntu-latest
+    container:
+      image: gergonullfuga/terragrunt:v1
     steps:
       - name: echo inputs
         run: |
