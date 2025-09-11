@@ -24,7 +24,7 @@ jobs:
   checkov-plan:
     runs-on: ubuntu-latest
     container:
-      image: gergonullfuga/terragrunt:v1
+      image: gergonullfuga/terragrunt:v2.0.0
     steps:
       - name: checkout
         uses: actions/checkout@v5
