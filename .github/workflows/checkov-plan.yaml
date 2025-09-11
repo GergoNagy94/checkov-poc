@@ -52,4 +52,4 @@ jobs:
           cd ./${BINARY%/*}
           tofu show -json tfplan.binary | jq > tfplan.json
 
-          checkov -f tfplan.json --soft-fail >> $GITHUB_OUTPUT
+          checkov -f tfplan.json --soft-fail >> $GITHUB_STEP_SUMMARY
