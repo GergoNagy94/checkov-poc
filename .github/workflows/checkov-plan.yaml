@@ -22,6 +22,6 @@ jobs:
     steps:
       - name: check
         run: |
-          echo "environment ${{ github.event.inputs.environment }}
-          echo "region ${{ github.event.inputs.region }}
-          echo "stack ${{ github.event.inputs.stack }}
+          echo "environment ${{ github.event.inputs.environment }}"
+          echo "region ${{ github.event.inputs.region }}"
+          echo "stack ${{ github.event.inputs.stack }}"
