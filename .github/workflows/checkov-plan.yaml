@@ -19,9 +19,18 @@ on:
 jobs:
   checkov-plan:
     runs-on: self-hosted
+    container:
+      image: gergonullfuga/terragrunt:v1
     steps:
       - name: check
         run: |
           echo "environment ${{ github.event.inputs.environment }}"
           echo "region ${{ github.event.inputs.region }}"
           echo "stack ${{ github.event.inputs.stack }}"
+
+      - name: AWS
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::567749996660:role/checkov-role
+          aws-region: eu-central-1
+          run: aws sts get-caller-identity
