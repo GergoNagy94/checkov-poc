@@ -49,7 +49,7 @@ jobs:
           terragrunt init --all --working-dir $WORKDIR
           terragrunt plan --all --working-dir $WORKDIR --out tfplan.binary
 
-          BINARY="$(fd -H -i tfplan.binary $WORKDIR/$TERRAGRUNT_CACHE)"
+          BINARY="$(fdfind -H -i tfplan.binary $WORKDIR/$TERRAGRUNT_CACHE)"
           cd ./${BINARY%/*}
           tofu show -json tfplan.binary | jq > tfplan.json
 
