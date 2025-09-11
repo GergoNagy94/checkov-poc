@@ -3,7 +3,7 @@ include "root" {
 }
 
 terraform {
-  source = "git::git@github.com:aws-ia/terraform-aws-eks-blueprints-addons?ref=v1.22.0"
+  source = "git::https://github.com:aws-ia/terraform-aws-eks-blueprints-addons?ref=v1.22.0"
 }
 
 dependency "eks" {

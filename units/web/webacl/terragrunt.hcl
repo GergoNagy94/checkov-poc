@@ -3,7 +3,7 @@ include "root" {
 }
 
 terraform {
-  source = "git::git@github.com:umotif-public/terraform-aws-waf-webaclv2?ref=5.1.2"
+  source = "git::https://github.com:umotif-public/terraform-aws-waf-webaclv2?ref=5.1.2"
 }
 
 inputs = {

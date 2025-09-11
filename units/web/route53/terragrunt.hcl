@@ -3,7 +3,7 @@ include "root" {
 }
 
 terraform {
-  source = "git::git@github.com:terraform-aws-modules/terraform-aws-route53//modules/records?ref=v5.0.0"
+  source = "git::https://github.com:terraform-aws-modules/terraform-aws-route53//modules/records?ref=v5.0.0"
 }
 
 dependency "cloudfront" {
