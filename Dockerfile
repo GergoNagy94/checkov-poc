@@ -7,6 +7,7 @@ ARG OPENTOFU_VERSION=1.7.2
 ARG TARGETARCH
 
 RUN apt-get update && apt-get install -y \
+    fd-find \
     curl \
     unzip \
     git \
