@@ -44,12 +44,13 @@ jobs:
       - name: check plan
         run: |
           WORKDIR=infrastructure/live/${{ github.event.inputs.environment }}/${{ github.event.inputs.region }}/${{ github.event.inputs.stack }}
+          TERRAGRUNT_CACHE=.terragrunt-stack/vpc/.terragrunt-cache
 
           terragrunt init --all --working-dir $WORKDIR
           terragrunt plan --all --working-dir $WORKDIR --out tfplan.binary
 
-          BINARY="$(fdfind -H -i tfplan.binary $WORKDIR)"
+          BINARY="$(fd -H -i tfplan.binary $WORKDIR/$TERRAGRUNT_CACHE)"
           cd ./${BINARY%/*}
           tofu show -json tfplan.binary | jq > tfplan.json
 
-          checkov -f tfplan.json --soft-fail >> $GITHUB_STEP_SUMMARY
+          checkov -f tfplan.json --soft-fail
