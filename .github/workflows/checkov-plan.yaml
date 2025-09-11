@@ -16,6 +16,9 @@ on:
         required: true
         default: "vpc"
 
+permissions:
+  id-token: write
+
 jobs:
   checkov-plan:
     runs-on: ubuntu-latest
