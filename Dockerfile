@@ -8,6 +8,7 @@ ARG TARGETARCH
 
 RUN apt-get update && apt-get install -y \
     fd-find \
+    jq \
     curl \
     unzip \
     git \
