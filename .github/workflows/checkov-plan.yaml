@@ -33,4 +33,6 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::567749996660:role/checkov-role
           aws-region: eu-central-1
-          run: aws sts get-caller-identity
+      - name: test aws caller
+        run: |
+          aws sts get-caller-identity
