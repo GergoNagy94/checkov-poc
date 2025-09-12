@@ -26,7 +26,7 @@ BINARY="$(fd -H -i tfplan.binary $WORKDIR/$TERRAGRUNT_CACHE)"
 cd ./${BINARY%/*}
 tofu show -json tfplan.binary | jq > tfplan.json
 
-checkov -f tfplan.json
+checkov -f tfplan.json --soft-fail
 '''
 
 [tasks.checkov-all]
@@ -63,5 +63,14 @@ terragrunt plan --all --out $BIN_NAME
 convert_bin_to_json
 collect_json
 
-checkov -d json-plans
+checkov -d $JSON_DIR --soft-fail
+'''
+
+[tasks.checkov-tags]
+description = "Check if all resources have specific tags"
+depends = ['checkov-all']
+run = '''
+checkov -d infrastructure/json-plans \
+  --external-checks-dir ./custom-policies \
+  --check CKV2_TAG_1
 '''

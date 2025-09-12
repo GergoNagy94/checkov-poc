@@ -3,13 +3,12 @@ metadata:
   id: "CKV2_TAG_1"
   name: "Ensure all resouces have a specific tag"
   category: "CONVENTION"
-  guideline: "All resources must be tagged with project=checkov-test"
   severity: "CRITICAL"
 
 definition:
   cond_type: "attribute"
   resource_types:
     - "all"
-  attribute: "tags.project"
+  attribute: "tags.proba"
   operator: "equals"
-  value: "checkov-test"
+  value: "hiba"
