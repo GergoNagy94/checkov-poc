@@ -33,24 +33,35 @@ checkov -f tfplan.json
 description = "Use checkov to scan and check all terragrunt infrastructure."
 run = '''
 #!/bin/bash -eux
-cd infrastructure
 
-terragrunt init --all
-terragrunt plan --all --out tfplan.binary
+BIN_NAME=tfplan.binary
+JSON_NAME=tfplan.json
+JSON_DIR=json-plans
 
-fd -HI -t f tfplan.binary | while read -r BINARY; do
+convert_bin_to_json() {
+fd -HI -t f $BIN_NAME | while read -r FILE; do
   INFRA_DIR=$(pwd)
-  cd $(dirname "$BINARY")
-  tofu show -json tfplan.binary | jq > tfplan.json
+  cd $(dirname "$FILE")
+  tofu show -json $BIN_NAME | jq > $JSON_NAME
   cd $INFRA_DIR
 done
+}
 
-mkdir -p json-plans
+collect_json() {
+mkdir -p $JSON_DIR
 INDEX=0
-fd -HI -t f tfplan.json | while read -r JSON; do
+fd -HI -t f tfplan.json | while read -r FILE; do
   INDEX=$((INDEX + 1))
-  mv "$JSON" "json-plans/tfplan$INDEX.json"
+  mv "$FILE" "$JSON_DIR/tfplan$INDEX.json"
 done
+}
+
+cd infrastructure
+terragrunt init --all
+terragrunt plan --all --out $BIN_NAME
+
+convert_bin_to_json
+collect_json
 
 checkov -d json-plans
 '''
