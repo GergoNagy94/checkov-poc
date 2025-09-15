@@ -11690,13 +11690,13 @@
     {
       "resource": "aws_internet_gateway.this[0]",
       "attribute": [
-        "id"
+        "arn"
       ]
     },
     {
       "resource": "aws_internet_gateway.this[0]",
       "attribute": [
-        "arn"
+        "id"
       ]
     },
     {
@@ -11804,43 +11804,7 @@
     {
       "resource": "aws_vpc.this[0]",
       "attribute": [
-        "cidr_block"
-      ]
-    },
-    {
-      "resource": "aws_vpc.this[0]",
-      "attribute": [
-        "main_route_table_id"
-      ]
-    },
-    {
-      "resource": "aws_vpc.this[0]",
-      "attribute": [
-        "default_route_table_id"
-      ]
-    },
-    {
-      "resource": "aws_vpc.this[0]",
-      "attribute": [
-        "arn"
-      ]
-    },
-    {
-      "resource": "aws_vpc.this[0]",
-      "attribute": [
         "default_network_acl_id"
-      ]
-    },
-    {
-      "resource": "aws_vpc.this[0]",
-      "attribute": [
-        "id"
-      ]
-    },
-    {
-      "resource": "aws_vpc.this[0]",
-      "attribute": [
-        "ipv6_association_id"
       ]
     },
     {
@@ -11852,13 +11816,7 @@
     {
       "resource": "aws_vpc.this[0]",
       "attribute": [
-        "owner_id"
-      ]
-    },
-    {
-      "resource": "aws_vpc.this[0]",
-      "attribute": [
-        "default_security_group_id"
+        "main_route_table_id"
       ]
     },
     {
@@ -11870,13 +11828,55 @@
     {
       "resource": "aws_vpc.this[0]",
       "attribute": [
+        "default_security_group_id"
+      ]
+    },
+    {
+      "resource": "aws_vpc.this[0]",
+      "attribute": [
+        "arn"
+      ]
+    },
+    {
+      "resource": "aws_vpc.this[0]",
+      "attribute": [
         "enable_dns_hostnames"
       ]
     },
     {
       "resource": "aws_vpc.this[0]",
       "attribute": [
+        "owner_id"
+      ]
+    },
+    {
+      "resource": "aws_vpc.this[0]",
+      "attribute": [
+        "id"
+      ]
+    },
+    {
+      "resource": "aws_vpc.this[0]",
+      "attribute": [
+        "cidr_block"
+      ]
+    },
+    {
+      "resource": "aws_vpc.this[0]",
+      "attribute": [
         "instance_tenancy"
+      ]
+    },
+    {
+      "resource": "aws_vpc.this[0]",
+      "attribute": [
+        "ipv6_association_id"
+      ]
+    },
+    {
+      "resource": "aws_vpc.this[0]",
+      "attribute": [
+        "default_route_table_id"
       ]
     },
     {
@@ -11894,6 +11894,6 @@
       ]
     }
   ],
-  "timestamp": "2025-09-12T13:52:44Z",
+  "timestamp": "2025-09-15T07:41:15Z",
   "errored": false
 }

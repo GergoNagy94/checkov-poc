@@ -9,6 +9,6 @@ definition:
   cond_type: "attribute"
   resource_types:
     - "all"
-  attribute: "tags.proba"
+  attribute: "tags.project"
   operator: "equals"
-  value: "hiba"
+  value: "checkov-test"
