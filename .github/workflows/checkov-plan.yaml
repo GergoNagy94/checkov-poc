@@ -71,7 +71,7 @@ jobs:
           JSON_DIR=json-plans
 
           convert_bin_to_json() {
-          fd -HI -t f $BIN_NAME | while read -r FILE; do
+          fdfind -HI -t f $BIN_NAME | while read -r FILE; do
             INFRA_DIR=$(pwd)
             cd $(dirname "$FILE")
             tofu show -json $BIN_NAME | jq > $JSON_NAME
@@ -82,7 +82,7 @@ jobs:
           collect_json() {
           mkdir -p $JSON_DIR
           INDEX=0
-          fd -HI -t f tfplan.json | while read -r FILE; do
+          fdfind -HI -t f tfplan.json | while read -r FILE; do
             INDEX=$((INDEX + 1))
             mv "$FILE" "$JSON_DIR/tfplan$INDEX.json"
           done
@@ -95,5 +95,5 @@ jobs:
           convert_bin_to_json
           collect_json
 
-          checkov -d $JSON_DIR --soft-fail
+          checkov -d $JSON_DIR -o github_failed_only | tee -a $GITHUB_STEP_SUMMARY
           '''
