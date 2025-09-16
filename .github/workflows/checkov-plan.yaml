@@ -106,4 +106,5 @@ jobs:
         run: |
           checkov -d infrastructure/json-plans \
           --external-checks-dir ./custom-policies \
-          --check ${{ github.event.inputs.checkPolicy }}
+          --check ${{ github.event.inputs.checkPolicy }} \
+          -o github_failed_only >> $GITHUB_STEP_SUMMARY
