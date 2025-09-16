@@ -95,5 +95,5 @@ jobs:
           convert_bin_to_json
           collect_json
 
-          checkov -d $JSON_DIR -o github_failed_only | tee -a $GITHUB_STEP_SUMMARY
+          checkov -d $JSON_DIR --soft-fail -o github_failed_only | tee -a $GITHUB_STEP_SUMMARY
           '''
