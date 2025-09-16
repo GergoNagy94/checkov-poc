@@ -8,6 +8,9 @@ on:
         required: true
         default: true
         type: boolean
+      checkPolicy:
+        description: "run selected checkov policy"
+        default: ""
 
       environment:
         description: "environment"
