@@ -3,6 +3,11 @@ name: checkov-plan
 on:
   workflow_dispatch:
     inputs:
+      checkAll:
+        description: "run checkov on all env"
+        default: false
+        required: true
+        type: boolean
       environment:
         description: "environment"
         required: true
@@ -42,6 +47,7 @@ jobs:
           aws-region: eu-central-1
 
       - name: check plan
+        if: ${{ !github.event.inputs.checkAll }}
         run: |
           WORKDIR=infrastructure/live/${{ github.event.inputs.environment }}/${{ github.event.inputs.region }}/${{ github.event.inputs.stack }}
           TERRAGRUNT_CACHE=.terragrunt-stack/vpc/.terragrunt-cache
@@ -54,3 +60,40 @@ jobs:
           tofu show -json tfplan.binary | jq > tfplan.json
 
           checkov -f tfplan.json --soft-fail -o github_failed_only | tee -a $GITHUB_STEP_SUMMARY
+
+      - name: check plan
+        if: ${{ !github.event.inputs.checkAll }}
+        run: |
+          #!/bin/bash -eux
+
+          BIN_NAME=tfplan.binary
+          JSON_NAME=tfplan.json
+          JSON_DIR=json-plans
+
+          convert_bin_to_json() {
+          fd -HI -t f $BIN_NAME | while read -r FILE; do
+            INFRA_DIR=$(pwd)
+            cd $(dirname "$FILE")
+            tofu show -json $BIN_NAME | jq > $JSON_NAME
+            cd $INFRA_DIR
+          done
+          }
+
+          collect_json() {
+          mkdir -p $JSON_DIR
+          INDEX=0
+          fd -HI -t f tfplan.json | while read -r FILE; do
+            INDEX=$((INDEX + 1))
+            mv "$FILE" "$JSON_DIR/tfplan$INDEX.json"
+          done
+          }
+
+          cd infrastructure
+          terragrunt init --all
+          terragrunt plan --all --out $BIN_NAME
+
+          convert_bin_to_json
+          collect_json
+
+          checkov -d $JSON_DIR --soft-fail
+          '''
