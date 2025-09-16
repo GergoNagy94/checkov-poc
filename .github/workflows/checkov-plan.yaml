@@ -61,8 +61,8 @@ jobs:
 
           checkov -f tfplan.json --soft-fail -o github_failed_only | tee -a $GITHUB_STEP_SUMMARY
 
-      - name: check plan
-        if: ${{ !github.event.inputs.checkAll }}
+      - name: check all plan
+        if: ${{ github.event.inputs.checkAll }}
         run: |
           #!/bin/bash -eux
 
