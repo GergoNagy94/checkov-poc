@@ -7,7 +7,7 @@ on:
         description: "run checkov on selected environment"
         default: true
         type: boolean
-      checkSelectedPolicy:
+      checkPolicy:
         description: "run selected checkov policy"
         default: ""
       environment:
@@ -64,7 +64,7 @@ jobs:
           checkov -f tfplan.json --soft-fail -o github_failed_only | tee -a $GITHUB_STEP_SUMMARY
 
       - name: check all plan
-        if: ${{ github.event.inputs.checkSelected == false }}
+        if: ${{ !github.event.inputs.checkSelected }}
         run: |
           #!/bin/bash -eux
 
@@ -100,8 +100,8 @@ jobs:
           checkov -d $JSON_DIR --soft-fail -o github_failed_only >> $GITHUB_STEP_SUMMARY
 
       - name: check selected policy
-        if: ${{ github.event.inputs.checkSelected == false && github.event.inputs.checkSelectedPolicy != '' }}
+        if: ${{ !github.event.inputs.checkSelected && github.event.inputs.checkPolicy != '' }}
         run: |
           checkov -d infrastructure/json-plans \
           --external-checks-dir ./custom-policies \
-          --check ${{ github.event.inputs.checkSelectedPolicy }}
+          --check ${{ github.event.inputs.checkPolicy }}
