@@ -3,9 +3,9 @@ name: checkov-plan
 on:
   workflow_dispatch:
     inputs:
-      checkAll:
-        description: "run checkov on all env"
-        default: false
+      checkSelected:
+        description: "run checkov on selected environment"
+        default: true
         required: true
         type: boolean
       environment:
@@ -47,7 +47,7 @@ jobs:
           aws-region: eu-central-1
 
       - name: check plan
-        if: ${{ !github.event.inputs.checkAll }}
+        if: ${{ github.event.inputs.checkSelected }}
         run: |
           WORKDIR=infrastructure/live/${{ github.event.inputs.environment }}/${{ github.event.inputs.region }}/${{ github.event.inputs.stack }}
           TERRAGRUNT_CACHE=.terragrunt-stack/vpc/.terragrunt-cache
@@ -62,7 +62,7 @@ jobs:
           checkov -f tfplan.json --soft-fail -o github_failed_only | tee -a $GITHUB_STEP_SUMMARY
 
       - name: check all plan
-        if: ${{ github.event.inputs.checkAll }}
+        if: ${{ !github.event.inputs.checkSelected }}
         run: |
           #!/bin/bash -eux
 
