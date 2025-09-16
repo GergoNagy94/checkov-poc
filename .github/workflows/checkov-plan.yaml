@@ -8,6 +8,9 @@ on:
         default: true
         required: true
         type: boolean
+      checkSelectedPolicy:
+        description: "run selected checkov policy"
+        default: ""
       environment:
         description: "environment"
         required: true
@@ -96,3 +99,10 @@ jobs:
           collect_json
 
           checkov -d $JSON_DIR --soft-fail -o github_failed_only >> $GITHUB_STEP_SUMMARY
+
+      - name: check selected policy
+        if: ${{ !github.event.inputs.checkSelected }} && ${{ github.event.inputs.checkSelectedPolicy }}
+        run: |
+          checkov -d infrastructure/json-plans \
+          --external-checks-dir ./custom-policies \
+          --check ${{ github.event.inputs.checkSelectedPolicy }}
