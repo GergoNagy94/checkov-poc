@@ -1,0 +1,14 @@
+---
+metadata:
+  id: "CKV2_TAG_2"
+  name: "Ensure vpc resouces have EKS elb subnet tag"
+  category: "CONVENTION"
+  severity: "CRITICAL"
+
+definition:
+  cond_type: "attribute"
+  resource_types:
+    - "aws_subnet"
+  attribute: "tags.kubernetes.io/role/internal-elb"
+  operator: "equals"
+  value: "1"

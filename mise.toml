@@ -72,5 +72,5 @@ depends = ['checkov-all']
 run = '''
 checkov -d infrastructure/json-plans \
   --external-checks-dir ./custom-policies \
-  --check CKV2_TAG_1
+  --check CKV2_TAG_2
 '''

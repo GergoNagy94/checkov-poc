@@ -8,7 +8,7 @@ locals {
   development_account_email = "hello@gergo.com"
   organization_id           = "0-0000000000"
   organization_root_id      = "r-0000"
-  
+
 }
 
 unit "vpc" {
@@ -34,13 +34,15 @@ unit "vpc" {
     create_flow_log_cloudwatch_iam_role  = false
     create_flow_log_cloudwatch_log_group = false
 
+    private_subnet_tags = {
+    }
+
+    public_subnet_tags = {
+    }
+
     tags = {
       Name      = "${local.project}-${local.env}-vpc"
       ManagedBy = "Terragrunt"
     }
   }
 }
-
-
-
-

@@ -36,5 +36,13 @@ inputs = {
     Type = "Database"
   })
 
+  public_subnet_tags = merge(
+    try(values.public_subnet_tags, {})
+  )
+
+  private_subnet_tags = merge(
+    try(values.private_subnet_tags, {})
+  )
+
   tags = try(values.tags, {})
 }

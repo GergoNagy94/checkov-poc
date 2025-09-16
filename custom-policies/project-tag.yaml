@@ -1,7 +1,7 @@
 ---
 metadata:
   id: "CKV2_TAG_1"
-  name: "Ensure all resouces have a specific tag"
+  name: "Ensure all resouces have 'project: <project-name> tag'"
   category: "CONVENTION"
   severity: "CRITICAL"
 
