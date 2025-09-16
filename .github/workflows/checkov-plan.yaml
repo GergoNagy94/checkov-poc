@@ -6,7 +6,6 @@ on:
       checkSelected:
         description: "run checkov on selected environment"
         default: true
-        required: true
         type: boolean
       checkSelectedPolicy:
         description: "run selected checkov policy"
