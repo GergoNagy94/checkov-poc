@@ -10,7 +10,12 @@ on:
         type: boolean
       checkPolicy:
         description: "run selected checkov policy"
-        default: ""
+        default: none
+        type: choice
+        options:
+          - none
+          - CKV2_TAG_1
+          - CKV2_TAG_2
 
       environment:
         description: "environment"
