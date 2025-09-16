@@ -48,7 +48,7 @@ jobs:
           aws-region: eu-central-1
 
       - name: check plan
-        if: ${{ github.event.inputs.checkSelected }}
+        if: ${{ github.event.inputs.checkSelected == false }}
         run: |
           WORKDIR=infrastructure/live/${{ github.event.inputs.environment }}/${{ github.event.inputs.region }}/${{ github.event.inputs.stack }}
           TERRAGRUNT_CACHE=.terragrunt-stack/vpc/.terragrunt-cache
