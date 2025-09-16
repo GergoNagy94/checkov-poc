@@ -107,7 +107,7 @@ jobs:
           checkov -d $JSON_DIR --soft-fail -o github_failed_only >> $GITHUB_STEP_SUMMARY
 
       - name: check selected policy
-        if: ${{ github.event.inputs.checkSelected == 'false' && github.event.inputs.checkPolicy != '' }}
+        if: ${{ github.event.inputs.checkSelected == 'false' && github.event.inputs.checkPolicy != 'none' }}
         run: |
           checkov -d infrastructure/json-plans \
           --external-checks-dir ./custom-policies \
