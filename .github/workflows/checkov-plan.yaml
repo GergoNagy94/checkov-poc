@@ -96,4 +96,3 @@ jobs:
           collect_json
 
           checkov -d $JSON_DIR --soft-fail -o github_failed_only >> $GITHUB_STEP_SUMMARY
-          '''
