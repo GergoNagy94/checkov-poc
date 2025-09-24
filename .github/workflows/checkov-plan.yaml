@@ -113,4 +113,4 @@ jobs:
           --external-checks-dir ./custom-policies \
           --check ${{ github.event.inputs.checkPolicy }} \
           -o github_failed_only >> $GITHUB_STEP_SUMMARY \
-          --soft-fail-on MEDIUM
+          --hard-fail-on HIGH
