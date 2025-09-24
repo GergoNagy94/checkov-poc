@@ -3,7 +3,7 @@ metadata:
   id: "CKV2_TAG_1"
   name: "Ensure all resouces have 'project: <project-name> tag'"
   category: "CONVENTION"
-  severity: "CRITICAL"
+  severity: "LOW"
 
 definition:
   cond_type: "attribute"

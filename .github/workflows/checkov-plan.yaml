@@ -112,4 +112,5 @@ jobs:
           checkov -d infrastructure/json-plans \
           --external-checks-dir ./custom-policies \
           --check ${{ github.event.inputs.checkPolicy }} \
-          -o github_failed_only >> $GITHUB_STEP_SUMMARY
+          -o github_failed_only >> $GITHUB_STEP_SUMMARY \
+          --hard-fail-on MEDIUM

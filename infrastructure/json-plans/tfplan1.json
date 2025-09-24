@@ -711,9 +711,9 @@
             "schema_version": 0,
             "values": {
               "account_id": "567749996660",
-              "arn": "arn:aws:sts::567749996660:assumed-role/terragrunt-execution-role/aws-go-sdk-1758011088702350000",
+              "arn": "arn:aws:sts::567749996660:assumed-role/terragrunt-execution-role/aws-go-sdk-1758540557772928000",
               "id": "567749996660",
-              "user_id": "AROAYIMEJOB2LUXBATVY2:aws-go-sdk-1758011088702350000"
+              "user_id": "AROAYIMEJOB2LUXBATVY2:aws-go-sdk-1758540557772928000"
             },
             "sensitive_values": {}
           },
@@ -3237,19 +3237,13 @@
     {
       "resource": "aws_s3_bucket.this[0]",
       "attribute": [
-        "hosted_zone_id"
-      ]
-    },
-    {
-      "resource": "aws_s3_bucket.this[0]",
-      "attribute": [
         "arn"
       ]
     },
     {
       "resource": "aws_s3_bucket.this[0]",
       "attribute": [
-        "bucket_regional_domain_name"
+        "bucket_domain_name"
       ]
     },
     {
@@ -3261,13 +3255,19 @@
     {
       "resource": "aws_s3_bucket.this[0]",
       "attribute": [
-        "id"
+        "hosted_zone_id"
       ]
     },
     {
       "resource": "aws_s3_bucket.this[0]",
       "attribute": [
-        "bucket_domain_name"
+        "bucket_regional_domain_name"
+      ]
+    },
+    {
+      "resource": "aws_s3_bucket.this[0]",
+      "attribute": [
+        "id"
       ]
     },
     {
@@ -3307,6 +3307,6 @@
       ]
     }
   ],
-  "timestamp": "2025-09-16T08:24:47Z",
+  "timestamp": "2025-09-22T11:29:16Z",
   "errored": false
 }

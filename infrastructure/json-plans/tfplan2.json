@@ -659,7 +659,9 @@
       "value": "private"
     },
     "private_subnet_tags": {
-      "value": {}
+      "value": {
+        "kubernetes.io/role/internal-elb": "1"
+      }
     },
     "private_subnet_tags_per_az": {
       "value": {}
@@ -741,7 +743,9 @@
       "value": "public"
     },
     "public_subnet_tags": {
-      "value": {}
+      "value": {
+        "kubernetes.io/role/internal-elb": "1"
+      }
     },
     "public_subnet_tags_per_az": {
       "value": {}
@@ -2047,13 +2051,15 @@
             "region": "eu-central-1",
             "tags": {
               "ManagedBy": "Terragrunt",
-              "Name": "checkov-test-development-vpc"
+              "Name": "checkov-test-development-vpc",
+              "kubernetes.io/role/internal-elb": "1"
             },
             "tags_all": {
               "ManagedBy": "Terragrunt",
               "Name": "checkov-test-development-vpc",
               "createdBy": "Terragrunt",
               "environment": "development",
+              "kubernetes.io/role/internal-elb": "1",
               "project": "checkov-test",
               "project_version": "1.0.0"
             },
@@ -2089,13 +2095,15 @@
             "region": "eu-central-1",
             "tags": {
               "ManagedBy": "Terragrunt",
-              "Name": "checkov-test-development-vpc"
+              "Name": "checkov-test-development-vpc",
+              "kubernetes.io/role/internal-elb": "1"
             },
             "tags_all": {
               "ManagedBy": "Terragrunt",
               "Name": "checkov-test-development-vpc",
               "createdBy": "Terragrunt",
               "environment": "development",
+              "kubernetes.io/role/internal-elb": "1",
               "project": "checkov-test",
               "project_version": "1.0.0"
             },
@@ -2131,13 +2139,15 @@
             "region": "eu-central-1",
             "tags": {
               "ManagedBy": "Terragrunt",
-              "Name": "checkov-test-development-vpc"
+              "Name": "checkov-test-development-vpc",
+              "kubernetes.io/role/internal-elb": "1"
             },
             "tags_all": {
               "ManagedBy": "Terragrunt",
               "Name": "checkov-test-development-vpc",
               "createdBy": "Terragrunt",
               "environment": "development",
+              "kubernetes.io/role/internal-elb": "1",
               "project": "checkov-test",
               "project_version": "1.0.0"
             },
@@ -2173,13 +2183,15 @@
             "region": "eu-central-1",
             "tags": {
               "ManagedBy": "Terragrunt",
-              "Name": "checkov-test-development-vpc"
+              "Name": "checkov-test-development-vpc",
+              "kubernetes.io/role/internal-elb": "1"
             },
             "tags_all": {
               "ManagedBy": "Terragrunt",
               "Name": "checkov-test-development-vpc",
               "createdBy": "Terragrunt",
               "environment": "development",
+              "kubernetes.io/role/internal-elb": "1",
               "project": "checkov-test",
               "project_version": "1.0.0"
             },
@@ -2215,13 +2227,15 @@
             "region": "eu-central-1",
             "tags": {
               "ManagedBy": "Terragrunt",
-              "Name": "checkov-test-development-vpc"
+              "Name": "checkov-test-development-vpc",
+              "kubernetes.io/role/internal-elb": "1"
             },
             "tags_all": {
               "ManagedBy": "Terragrunt",
               "Name": "checkov-test-development-vpc",
               "createdBy": "Terragrunt",
               "environment": "development",
+              "kubernetes.io/role/internal-elb": "1",
               "project": "checkov-test",
               "project_version": "1.0.0"
             },
@@ -2257,13 +2271,15 @@
             "region": "eu-central-1",
             "tags": {
               "ManagedBy": "Terragrunt",
-              "Name": "checkov-test-development-vpc"
+              "Name": "checkov-test-development-vpc",
+              "kubernetes.io/role/internal-elb": "1"
             },
             "tags_all": {
               "ManagedBy": "Terragrunt",
               "Name": "checkov-test-development-vpc",
               "createdBy": "Terragrunt",
               "environment": "development",
+              "kubernetes.io/role/internal-elb": "1",
               "project": "checkov-test",
               "project_version": "1.0.0"
             },
@@ -3054,13 +3070,15 @@
           "region": "eu-central-1",
           "tags": {
             "ManagedBy": "Terragrunt",
-            "Name": "checkov-test-development-vpc"
+            "Name": "checkov-test-development-vpc",
+            "kubernetes.io/role/internal-elb": "1"
           },
           "tags_all": {
             "ManagedBy": "Terragrunt",
             "Name": "checkov-test-development-vpc",
             "createdBy": "Terragrunt",
             "environment": "development",
+            "kubernetes.io/role/internal-elb": "1",
             "project": "checkov-test",
             "project_version": "1.0.0"
           },
@@ -3113,13 +3131,15 @@
           "region": "eu-central-1",
           "tags": {
             "ManagedBy": "Terragrunt",
-            "Name": "checkov-test-development-vpc"
+            "Name": "checkov-test-development-vpc",
+            "kubernetes.io/role/internal-elb": "1"
           },
           "tags_all": {
             "ManagedBy": "Terragrunt",
             "Name": "checkov-test-development-vpc",
             "createdBy": "Terragrunt",
             "environment": "development",
+            "kubernetes.io/role/internal-elb": "1",
             "project": "checkov-test",
             "project_version": "1.0.0"
           },
@@ -3172,13 +3192,15 @@
           "region": "eu-central-1",
           "tags": {
             "ManagedBy": "Terragrunt",
-            "Name": "checkov-test-development-vpc"
+            "Name": "checkov-test-development-vpc",
+            "kubernetes.io/role/internal-elb": "1"
           },
           "tags_all": {
             "ManagedBy": "Terragrunt",
             "Name": "checkov-test-development-vpc",
             "createdBy": "Terragrunt",
             "environment": "development",
+            "kubernetes.io/role/internal-elb": "1",
             "project": "checkov-test",
             "project_version": "1.0.0"
           },
@@ -3231,13 +3253,15 @@
           "region": "eu-central-1",
           "tags": {
             "ManagedBy": "Terragrunt",
-            "Name": "checkov-test-development-vpc"
+            "Name": "checkov-test-development-vpc",
+            "kubernetes.io/role/internal-elb": "1"
           },
           "tags_all": {
             "ManagedBy": "Terragrunt",
             "Name": "checkov-test-development-vpc",
             "createdBy": "Terragrunt",
             "environment": "development",
+            "kubernetes.io/role/internal-elb": "1",
             "project": "checkov-test",
             "project_version": "1.0.0"
           },
@@ -3290,13 +3314,15 @@
           "region": "eu-central-1",
           "tags": {
             "ManagedBy": "Terragrunt",
-            "Name": "checkov-test-development-vpc"
+            "Name": "checkov-test-development-vpc",
+            "kubernetes.io/role/internal-elb": "1"
           },
           "tags_all": {
             "ManagedBy": "Terragrunt",
             "Name": "checkov-test-development-vpc",
             "createdBy": "Terragrunt",
             "environment": "development",
+            "kubernetes.io/role/internal-elb": "1",
             "project": "checkov-test",
             "project_version": "1.0.0"
           },
@@ -3349,13 +3375,15 @@
           "region": "eu-central-1",
           "tags": {
             "ManagedBy": "Terragrunt",
-            "Name": "checkov-test-development-vpc"
+            "Name": "checkov-test-development-vpc",
+            "kubernetes.io/role/internal-elb": "1"
           },
           "tags_all": {
             "ManagedBy": "Terragrunt",
             "Name": "checkov-test-development-vpc",
             "createdBy": "Terragrunt",
             "environment": "development",
+            "kubernetes.io/role/internal-elb": "1",
             "project": "checkov-test",
             "project_version": "1.0.0"
           },
@@ -4234,13 +4262,15 @@
           "region": "eu-central-1",
           "tags": {
             "ManagedBy": "Terragrunt",
-            "Name": "checkov-test-development-vpc"
+            "Name": "checkov-test-development-vpc",
+            "kubernetes.io/role/internal-elb": "1"
           },
           "tags_all": {
             "ManagedBy": "Terragrunt",
             "Name": "checkov-test-development-vpc",
             "createdBy": "Terragrunt",
             "environment": "development",
+            "kubernetes.io/role/internal-elb": "1",
             "project": "checkov-test",
             "project_version": "1.0.0"
           },
@@ -4263,13 +4293,15 @@
           "region": "eu-central-1",
           "tags": {
             "ManagedBy": "Terragrunt",
-            "Name": "checkov-test-development-vpc"
+            "Name": "checkov-test-development-vpc",
+            "kubernetes.io/role/internal-elb": "1"
           },
           "tags_all": {
             "ManagedBy": "Terragrunt",
             "Name": "checkov-test-development-vpc",
             "createdBy": "Terragrunt",
             "environment": "development",
+            "kubernetes.io/role/internal-elb": "1",
             "project": "checkov-test",
             "project_version": "1.0.0"
           },
@@ -4292,13 +4324,15 @@
           "region": "eu-central-1",
           "tags": {
             "ManagedBy": "Terragrunt",
-            "Name": "checkov-test-development-vpc"
+            "Name": "checkov-test-development-vpc",
+            "kubernetes.io/role/internal-elb": "1"
           },
           "tags_all": {
             "ManagedBy": "Terragrunt",
             "Name": "checkov-test-development-vpc",
             "createdBy": "Terragrunt",
             "environment": "development",
+            "kubernetes.io/role/internal-elb": "1",
             "project": "checkov-test",
             "project_version": "1.0.0"
           },
@@ -4497,13 +4531,15 @@
           "region": "eu-central-1",
           "tags": {
             "ManagedBy": "Terragrunt",
-            "Name": "checkov-test-development-vpc"
+            "Name": "checkov-test-development-vpc",
+            "kubernetes.io/role/internal-elb": "1"
           },
           "tags_all": {
             "ManagedBy": "Terragrunt",
             "Name": "checkov-test-development-vpc",
             "createdBy": "Terragrunt",
             "environment": "development",
+            "kubernetes.io/role/internal-elb": "1",
             "project": "checkov-test",
             "project_version": "1.0.0"
           },
@@ -4526,13 +4562,15 @@
           "region": "eu-central-1",
           "tags": {
             "ManagedBy": "Terragrunt",
-            "Name": "checkov-test-development-vpc"
+            "Name": "checkov-test-development-vpc",
+            "kubernetes.io/role/internal-elb": "1"
           },
           "tags_all": {
             "ManagedBy": "Terragrunt",
             "Name": "checkov-test-development-vpc",
             "createdBy": "Terragrunt",
             "environment": "development",
+            "kubernetes.io/role/internal-elb": "1",
             "project": "checkov-test",
             "project_version": "1.0.0"
           },
@@ -4555,13 +4593,15 @@
           "region": "eu-central-1",
           "tags": {
             "ManagedBy": "Terragrunt",
-            "Name": "checkov-test-development-vpc"
+            "Name": "checkov-test-development-vpc",
+            "kubernetes.io/role/internal-elb": "1"
           },
           "tags_all": {
             "ManagedBy": "Terragrunt",
             "Name": "checkov-test-development-vpc",
             "createdBy": "Terragrunt",
             "environment": "development",
+            "kubernetes.io/role/internal-elb": "1",
             "project": "checkov-test",
             "project_version": "1.0.0"
           },
@@ -11690,13 +11730,13 @@
     {
       "resource": "aws_internet_gateway.this[0]",
       "attribute": [
-        "id"
+        "arn"
       ]
     },
     {
       "resource": "aws_internet_gateway.this[0]",
       "attribute": [
-        "arn"
+        "id"
       ]
     },
     {
@@ -11804,19 +11844,7 @@
     {
       "resource": "aws_vpc.this[0]",
       "attribute": [
-        "default_security_group_id"
-      ]
-    },
-    {
-      "resource": "aws_vpc.this[0]",
-      "attribute": [
-        "enable_dns_hostnames"
-      ]
-    },
-    {
-      "resource": "aws_vpc.this[0]",
-      "attribute": [
-        "ipv6_association_id"
+        "enable_dns_support"
       ]
     },
     {
@@ -11828,13 +11856,55 @@
     {
       "resource": "aws_vpc.this[0]",
       "attribute": [
-        "id"
+        "enable_dns_hostnames"
       ]
     },
     {
       "resource": "aws_vpc.this[0]",
       "attribute": [
         "default_route_table_id"
+      ]
+    },
+    {
+      "resource": "aws_vpc.this[0]",
+      "attribute": [
+        "ipv6_association_id"
+      ]
+    },
+    {
+      "resource": "aws_vpc.this[0]",
+      "attribute": [
+        "owner_id"
+      ]
+    },
+    {
+      "resource": "aws_vpc.this[0]",
+      "attribute": [
+        "instance_tenancy"
+      ]
+    },
+    {
+      "resource": "aws_vpc.this[0]",
+      "attribute": [
+        "main_route_table_id"
+      ]
+    },
+    {
+      "resource": "aws_vpc.this[0]",
+      "attribute": [
+        "id"
+      ]
+    },
+    {
+      "resource": "aws_vpc.this[0]",
+      "attribute": [
+        "default_network_acl_id"
+      ]
+    },
+    {
+      "resource": "aws_vpc.this[0]",
+      "attribute": [
+        "default_security_group_id"
       ]
     },
     {
@@ -11847,36 +11917,6 @@
       "resource": "aws_vpc.this[0]",
       "attribute": [
         "arn"
-      ]
-    },
-    {
-      "resource": "aws_vpc.this[0]",
-      "attribute": [
-        "instance_tenancy"
-      ]
-    },
-    {
-      "resource": "aws_vpc.this[0]",
-      "attribute": [
-        "owner_id"
-      ]
-    },
-    {
-      "resource": "aws_vpc.this[0]",
-      "attribute": [
-        "default_network_acl_id"
-      ]
-    },
-    {
-      "resource": "aws_vpc.this[0]",
-      "attribute": [
-        "enable_dns_support"
-      ]
-    },
-    {
-      "resource": "aws_vpc.this[0]",
-      "attribute": [
-        "main_route_table_id"
       ]
     },
     {
@@ -11894,6 +11934,6 @@
       ]
     }
   ],
-  "timestamp": "2025-09-16T08:24:47Z",
+  "timestamp": "2025-09-22T11:29:16Z",
   "errored": false
 }
